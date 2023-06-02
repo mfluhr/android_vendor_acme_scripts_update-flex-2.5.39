@@ -104,3 +104,15 @@ check_env
 check_flex_src_path
 replace_flex
 
+COLOR_SUCCESS=""
+COLOR_RESET=""
+NCOLORS=$(tput colors 2>/dev/null)
+if [ -n "$NCOLORS" ] && [ $NCOLORS -ge 8 ]; then
+    COLOR_SUCCESS=$'\E'"[0;32m"
+    COLOR_RESET=$'\E'"[00m"
+fi
+
+echo ""
+echo "${COLOR_SUCCESS}#### 'flex-2.5.39' binary replaced successfully ####${COLOR_RESET}"
+echo ""
+
